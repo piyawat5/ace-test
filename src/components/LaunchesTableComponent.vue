@@ -50,7 +50,12 @@
         <div>{{ item.crew.length }}</div>
       </template>
     </v-data-table>
-    <v-dialog max-width="700px" v-model="isOpenModal" width="auto">
+    <v-dialog
+      style="font-family: IBM Plex Sans Thai, sans-serif"
+      max-width="700px"
+      v-model="isOpenModal"
+      width="auto"
+    >
       <v-card>
         <v-card-text class="modal-head"> รายละเอียด </v-card-text>
         <img

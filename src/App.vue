@@ -8,7 +8,11 @@
       <nav-component></nav-component>
     </div>
 
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <transition name="route" mode="out-in">
+        <component :is="Component"></component>
+      </transition>
+    </router-view>
   </div>
 </template>
 
@@ -26,17 +30,35 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;600&display=swap");
+
 #app {
   padding: 50px 267px;
   height: 100%;
   min-height: 100vh; /* Set minimum height to the viewport height */
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "IBM Plex Sans Thai", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url("./assets/background.png");
   background-repeat: no-repeat;
   background-size: cover; /* or contain, based on your preference */
   background-position: center;
+}
+
+/* route transitions */
+.route-enter-from {
+  opacity: 0;
+  transform: translateX(100px);
+}
+.route-enter-active {
+  transition: all 0.3s ease-out;
+}
+.route-leave-to {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+.route-leave-active {
+  transition: all 0.3s ease-in;
 }
 @media (max-width: 1275px) {
   #app {
