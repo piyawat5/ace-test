@@ -26,7 +26,7 @@ nav {
   gap: 24px;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
 nav a {
@@ -36,6 +36,8 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #002992;
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
 }
 </style>

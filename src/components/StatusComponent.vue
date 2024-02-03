@@ -8,13 +8,13 @@
 </template>
 
 <script lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref, PropType } from "vue";
 import { statusEnum } from "./type";
 
 export default {
   props: {
-    date: {
-      type: Date,
+    statusProp: {
+      type: String as PropType<statusEnum>,
       default: new Date(),
     },
   },
@@ -22,15 +22,15 @@ export default {
   setup(props: any) {
     const status = ref(statusEnum.LAUNCHED);
     const statusEnumVar = statusEnum;
-    const checkStatus = (value: Date) => {
-      if (value <= new Date()) {
+    const checkStatus = (statusProp: statusEnum) => {
+      if (statusProp === statusEnum.LAUNCHED) {
         status.value = statusEnum.LAUNCHED;
         return;
       }
       status.value = statusEnum.UNLAUNCH;
     };
     onMounted(() => {
-      checkStatus(props.date);
+      checkStatus(props.statusProp);
     });
 
     return { status, checkStatus, statusEnumVar };
@@ -40,6 +40,7 @@ export default {
 
 <style scoped>
 .status {
+  text-align: center;
   height: 25px;
   border-radius: 40px;
   width: 100px;
