@@ -38,4 +38,15 @@ export default {
   background-size: cover; /* or contain, based on your preference */
   background-position: center;
 }
+@media (max-width: 1275px) {
+  #app {
+    padding: 25px 50px;
+  }
+}
+
+@media (max-width: 454px) {
+  #app {
+    padding: 25px 4px;
+  }
+}
 </style>
