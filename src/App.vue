@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import TitleComponent from "@/components/TitleComponent.vue";
-import NavComponent from "@/components/NavComponent.vue";
+import NavComponent from "@/components/navComponent.vue";
 
 export default {
   name: "HomeView",
